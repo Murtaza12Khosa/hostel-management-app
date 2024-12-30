@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Booking Form</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color:#f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 95%;
+            margin: 5px auto;
+            padding: 20px 30px;
+            height:100vh;
+        }
+
+        .container h2 {
+            text-align: left;
+            text-font:bold;
+            margin-bottom: 5px;
+            #color: #333;
+        }
+        .title {
+            font-size: 25px;
+            margin-top:1%;
+            margin-left:-35%;
+            width:100%;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        form div {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        form label {
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form textarea {
+            resize: none;
+        }
+
+        .full-width {
+            grid-column: span 1;
+        }
+
+        .button-container {
+            align: center;
+            grid-column: span 1;
+            display: block;
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #2575fc;
+            color: white;
+            align:center;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #1e63d8;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">Hostel Booking Form</div>
+    <div class="container">
+        <form id="hostelBookingForm" action="/book-hostel" method="POST">
+            <!-- Room Information -->
+             <h4> Room Related Info </h4> <br>
+             <div>
+                <label for="room_no">Room No</label>
+                <input type="text" id="room_no" name="room_no" required>
+            </div>
+            <div>
+                <label for="seater">seater</label>
+                <input type="text" id="seater" name="seater" required>
+            </div>
+            <div>
+                <label for="fees">Fees Per Month</label>
+                <input type="text" id="fees" name="fees" required>
+            </div>
+            <div>
+            <p>Food Status</p>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="foodStatus" value="With Food" required> With Food (2000 Per Month Extra)
+                </label>
+                <label>
+                    <input type="radio" name="foodStatus" value="Without Food" required> Without Food
+                </label>
+            </div>
+        </div>
+            <div>
+                <label for="stayfrom">Stay from</label>
+                <input type="date" id="date" name="Date" required>
+            </div>
+            <div>
+                <label for="stayDuration">Duration of Stay (in months)</label>
+                <input type="number" id="stayDuration" name="stayDuration" min="1" required>
+            </div>
+            
+            <h3> Personal Info</h3> <br>
+            <div>
+                <label for="course">Choose a course:</label>
+                <select name="course" id="course" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Data Science">Data Science</option>
+                    <option value="Machine Learning">Machine Learning</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                </select>
+            </div>
+            <div>
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div>
+                <label for="middelName">Middel Name</label>
+                <input type="text" id="middelName" name="middelName" required>
+            </div>
+            <div>
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div>
+            <label for="course">Gender:</label>
+            <select name="gender" id="gender" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="Male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+             
+            
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="guardinname">Guardian Name</label>
+                <input type="text" id="guardinname" name="guardinname" required>
+            </div>
+            <div>
+                <label for="guardinrelation">Guardin Relation</label>
+                <input type="text" id="guardinrelation" name="guardinrelation" required>
+            </div>
+            <div>
+                <label for="guardincontactno">Guardin Contact No</label>
+                <input type="text" id="guardincontactno" name="guardincontactno" required>
+            </div>
+            <h3> Address Retaled </h3> <br>
+            <!-- Address Information -->
+            <div class="full-width">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+            <div>
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div>
+                <label for="state">State:</label>
+                <select name="state" id="state" required>
+                    <option value="other">Punjab</option>
+                    <option value="other">Sindh</option>
+                    <option value="Male">Khyber Pakhtunkhwa(KPK)</option>
+                    <option value="female">Balochistan</option>
+                </select>
+            </div> <br>
+            <!-- Submit Button -->
+            <div class="button-container">
+                <button type="submit">Book Hostel</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

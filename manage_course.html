@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            width:100%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h2 {
+            margin-left:-30%;
+            margin-top:-3%;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        table {
+            margin-top:40px;
+            margin-left:-20%;
+            width: 158%;
+            margin-left:-32%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color:#f8f5f0;
+            text-align: left;
+        }
+        table th {
+            background-color: #ffffff;
+            color: #555c5e;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 5px 10px;
+            font-size: 14px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn.edit {
+            background-color: #007BFF;
+        }
+        .btn.edit:hover {
+            background-color: #0056b3;
+        }
+        .btn.delete {
+            background-color: #FF4C4C;
+        }
+        .btn.delete:hover {
+            background-color: #d41f1f;
+        }
+        .add-course {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .btn.add {
+            background-color: #28a745;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .btn.add:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Manage Courses</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Course Name</th>
+                    <th>Course Code</th>
+                    <th>Duration (weeks)</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example row -->
+                <tr>
+                    <td>1</td>
+                    <td>Introduction to Python</td>
+                    <td>CS101</td>
+                    <td>8</td>
+                    <td>Technology</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn edit" onclick="window.location.href='/edit-course?id=1'">Edit</button>
+                            <button class="btn delete" onclick="confirmDelete(1)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Repeat rows dynamically -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function confirmDelete(courseId) {
+            if (confirm("Are you sure you want to delete this course?")) {
+                // Redirect to the delete endpoint with the course ID
+                window.location.href = `/delete-course?id=${courseId}`;
+            }
+        }
+    </script>
+</body>
+</html>

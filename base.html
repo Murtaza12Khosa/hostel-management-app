@@ -1,0 +1,111 @@
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+    }
+    
+    .container {
+        display: flex;
+        width: 100%;
+    }
+    
+    .sidebar {
+        width: 15%;
+        background: #2c3135;
+        padding: 20px;
+        position: fixed; /* Keeps the sidebar fixed */
+        height: 100vh; /* Full height */
+    }
+    
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .sidebar ul li {
+        margin: 10px 0;
+    }
+    
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+    .sidebar ul li a:hover {
+        background-color: none;
+    }
+    
+    .sidebar a.active {
+        background-color: #17a2b8;
+        color: #ffffff;
+    }
+    
+    .content {
+        margin-left: 16%; /* Adjust to account for the sidebar width */
+        padding: 20px;
+        overflow-y: auto;
+        flex-grow: 1;
+        height: 100vh; /* Ensure content fills the remaining space */
+    }
+    
+    .content h2 {
+        margin-top: 0;
+        height: 70px;
+    }
+    
+    .sub-menu {
+        display: none;
+    }
+    
+    .expandable.expanded .sub-menu {
+        display: block;
+    }
+    
+    </style>
+    
+    <div class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="/registration" data-content="right-panel" class="sidebar-link">Registration</a></li>
+                <li><a href="/user_login" data-content="right-panel" class="sidebar-link">User Login</a></li>
+                <li><a href="/admin_login" data-content="right-panel" class="sidebar-link">Admin Login</a></li>
+            </ul>
+        </div>
+        <div class="content" id="right-panel">
+            <!-- Content will be loaded here based on the sidebar link clicked -->
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript to load content dynamically without refreshing the page
+        document.querySelectorAll('.sidebar-link').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();  // Prevent default link behavior
+    
+                // Fetch content for the clicked link
+                const targetUrl = this.getAttribute('href');
+    
+                // Use fetch API to load content into the right panel
+                fetch(targetUrl)
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('right-panel').innerHTML = html;
+                        // Optionally, mark the clicked link as active
+                        document.querySelectorAll('.sidebar-link').forEach(item => item.classList.remove('active'));
+                        this.classList.add('active');
+                    })
+                    .catch(error => console.error('Error loading content:', error));
+            });
+        });
+    </script>
+    

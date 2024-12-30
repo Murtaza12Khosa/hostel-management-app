@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Complaints</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color:#f4f4f9;
+        }
+
+        .table-container {
+            max-width: 100%;
+            margin-top: 2%;
+            margin-left:-8%;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top:1%;
+            margin-left:-5%;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 143%;
+            margin-top:5%;
+            margin-left:-1%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #ffff;
+        }
+    </style>
+</head>
+<body>
+    <h2>My Complaints</h2>
+    <div class="table-container">
+        <table id="complaintsTable" class="display">
+            <thead>
+                <tr>
+                    <th>Sno.</th>
+                    <th>Complaint Number</th>
+                    <th>Complaint Type</th>
+                    <th>Complaint Status</th>
+                    <th>Complaint Reg. Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6" style="text-align: center;">No data available in table</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#complaintsTable').DataTable({
+                "searching": true,
+                "paging": true,
+                "info": true
+            });
+        });
+    </script>
+</body>
+</html>

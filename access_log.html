@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Complaints</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color:#f4f4f9;
+
+        }
+
+        .table-container {
+            width: 100%;
+            margin: auto;
+            margin-top:7%;
+            margin-left: 5%;
+        }
+
+        .table-title {
+            font-size: 24px;
+            width:100%;
+            margin-top:2%;
+            margin-left:-7%;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+
+        table {
+            margin-top:-4%;
+            width: 215%;
+            margin-left:-20%;
+            border-collapse: collapse;
+
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="table-title">Access Log</div>
+    <div class="table-container">
+        <table id="accesslogTable" class="display">
+            <thead>
+                <tr>
+                    <th>Sno.</th>
+                    <th>User Id</th>
+                    <th>User Email</th>
+                    <th>IP</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Login Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="7" style="text-align: center;">No data available in table</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#complaintsTable').DataTable({
+                "searching": true,
+                "paging": true,
+                "info": true
+            });
+        });
+    </script>
+</body>
+</html>

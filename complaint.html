@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background-color:#f4f4f9;
+            height: 100vh;
+        }
+        .complaint-form-container {
+            padding:30%;
+            margin-left: 50%;
+            margin-top: 10%;
+            padding-top:20%;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+        }
+        
+         h2 {
+            width:100%;
+            text-align: left;
+            margin-top:9%;
+            margin-left:-7%;
+            color:black;
+            margin-bottom: -10%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            margin-left:-20%;
+
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 170%;
+            padding: 10px;
+            margin-left:-20%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Complaint Registration</h2>
+    <div class="complaint-form-container">
+        <form action="/register-complaint" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Enter the complaint subject" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category" name="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="service">Service</option>
+                    <option value="billing">Billing</option>
+                    <option value="technical">Technical</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Describe your complaint" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Complaint</button>
+        </form>
+    </div>
+</body>
+</html>

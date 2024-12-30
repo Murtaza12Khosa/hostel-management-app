@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Access Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: left;
+            color: #333;
+        }
+        table {
+            width: 108%;
+            border-collapse: collapse;
+            margin-left:-4%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h2>User Access </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Email</th>
+                <th>IP Address</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Login Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row -->
+            <tr>
+                <td>1</td>
+                <td>user1@example.com</td>
+                <td>192.168.1.1</td>
+                <td>Karachi</td>
+                <td>Pakistan</td>
+                <td>2024-12-25 10:30 AM</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>user2@example.com</td>
+                <td>192.168.1.2</td>
+                <td>Lahore</td>
+                <td>Pakistan</td>
+                <td>2024-12-25 11:00 AM</td>
+            </tr>
+            <!-- Repeat rows dynamically using Flask -->
+        </tbody>
+    </table>
+</body>
+</html>

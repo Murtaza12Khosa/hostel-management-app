@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .form-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #333333;
+        }
+        .form-container label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333333;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Update Room</h1>
+        <form action="/update-room" method="POST">
+            <!-- Hidden Input to Store Room ID -->
+            <input type="hidden" name="room_id" value="{{ room['id'] }}">
+
+            <!-- Room Name Field -->
+            <label for="room_name">Room Name:</label>
+            <input type="text" id="room_name" name="room_name" value="{{ room['name'] }}" required>
+
+            <!-- Room Capacity Field -->
+            <label for="room_capacity">Capacity:</label>
+            <input type="number" id="room_capacity" name="room_capacity" value="{{ room['capacity'] }}" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Update Room</button>
+        </form>
+    </div>
+</body>
+</html>

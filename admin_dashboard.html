@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #ffffff; /* White text for visibility */
+                margin: 0;
+                padding: 0;
+                height: 100vh; /* Ensure full height */
+                display: flex;
+                flex-direction: column; /* Stack elements vertically */
+                justify-content: flex-start; /* Align content at the top */
+            }
+            
+            /* Fixed Text for Hostel Management System */
+            .header-text {
+                position: fixed;
+                top: 0;
+                font-size:20px;
+                left: 0;
+                right: 0;
+                background-color:  #3e454d;
+                color: white;
+                padding: 15px;
+                z-index: 1000;
+            }
+            
+            
+            /* Sidebar styling */
+            .sidebar {
+                width: 250px;
+                height: 100vw;
+                margin-top:3%;
+                background: #2c3135;
+                color: white;
+                position: fixed;
+                top: 0;
+                left: 0;
+                padding: 20px 10px;
+                overflow-y: auto;
+            }
+    
+            .sidebar h2 {
+                text-align: center;
+                margin-top:15%;
+                padding: 20px 0;
+                font-weight: 700;
+                font-size: 24px;
+                letter-spacing: 1px;
+            }
+    
+            .sidebar ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .sidebar ul li {
+                margin-bottom: 10px;
+            }
+    
+            .sidebar ul li a {
+                text-decoration: none;
+                color: white;
+                display: flex;
+                align-items: center;
+                padding: 10px 15px;
+                border-radius: 8px;
+                transition: background-color 0.3s ease;
+            }
+    
+            .sidebar ul li a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+    
+            .sidebar ul li a i {
+                margin-right: 10px;
+            }
+    
+            /* Sub-menu styling */
+            .sub-menu {
+                display: none;
+                margin-left: 15px;
+            }
+    
+            .expandable.expanded > .sub-menu {
+                display: block;
+
+            }
+    
+            /* Content Section */
+            .content {
+                margin-left: 270px;
+                padding: 30px;
+                transition: margin-left 0.3s ease;
+            }
+    
+             h2 {
+                font-weight: 500;
+                margin-top:5%;
+                text-align:center;
+                font-size: 28px;
+                color: #333;
+            }
+    
+           
+            .box-container {
+                display: grid; /* Use grid layout */
+                grid-template-columns: repeat(3, 1fr); /* 3 boxes per row */
+                margin-left:22%;
+                boxContainer.style.display = 'none';
+                gap: 20px; /* Space between boxes */
+                justify-content: center; /* Center-align the grid */
+            }
+            .box {
+                display: flex; /* Flexbox for centering content */
+                justify-content: center;
+                align-items: center;
+                height: 140px; /* Fixed height for boxes */
+                border-radius: 8px; /* Rounded corners */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for boxes */
+                text-align: center;
+            }
+            .box a {
+                text-decoration: none; /* Remove underline */
+                color: white; /* White link text */
+                font-size: 18px;
+                font-weight: bold;
+                transition: color 0.3s ease; /* Smooth transition for hover */
+            }
+            
+            .box a:hover {
+                color: #000; /* Change text color on hover */
+            }
+            </style>
+        </head>
+<body>
+    <div class="header-text">
+        Hostel Management System
+    </div>
+    <div class="container">
+      <h2>Welcome to your Dashboard</h2>
+    <div class="box-container">
+        <div class="box" style="background-color: #FF5733;"">
+        <a href="my_profile.html" data-content="right-panel">My Profile</a>
+    </div>
+            <div class="box" style="background-color: #33B5FF;">
+                <a href="manage_room.html" data-content="right-panel">Total Rooms</a>
+            </div>
+             
+            <div class="box" style="background-color: #75FF33;">
+                <a href="manage_course.html" data-content="right-panel">Total Course</a>
+            </div>
+             
+            <div class="box" style="background-color: #FFC300;">
+                <a href="registered_complaint.html" data-content="right-panel">Registered Complaint</a>
+            </div>
+             
+            <div class="box" style="background-color: #FF33A1;">
+                <a href="complaint_new.html" data-content="right-panel">New Complaint</a>
+            </div>
+             
+            <div class="box" style="background-color: #7D33FF;">
+                <a href="complaint_inprocess.html" data-content="right-panel">In Process Complaint</a>
+            </div>
+             
+            <div class="box" style="background-color:rgb(146, 182, 179);">
+                <a href="complaint_closed.html" data-content="right-panel">Closed Complaint</a>
+            </div>
+             
+            <div class="box" style="background-color: #FF3333;">
+                <a href="feedback.html" class="load-content">Total FeedBack</a>
+            </div>
+        
+    </div>
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <ul>
+                <li class="expandable">
+                    <a href="#" class="expand-toggle">Course</a>
+                    <ul class="sub-menu">
+                        <li><a href="add_course.html" class="load-content">Add Course</a></li>
+                        <li><a href="manage_course.html" class="load-content">Manage Course</a></li>
+                    </ul>
+                </li>
+
+                <li class="expandable">
+                    <a href="#" class="expand-toggle">Room</a>
+                    <ul class="sub-menu">
+                        <li><a href="add_room.html" class="load-content">Add Room</a></li>
+                        <li><a href="manage_room.html" class="load-content">Manage Room</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="admin_student_registration.html" class="load-content">Student Registration</a></li>
+                <li><a href="manage_student.html" class="load-content">Manage Student</a></li>
+                <ul>
+                <li class="expandable">
+                    <a href="#" class="expand-toggle">Complaint</a>
+                    <ul class="sub-menu">
+                        <li><a href="complaint_new.html" class="load-content">New</a></li>
+                        <li><a href="complaint_inprocess.html" class="load-content">In process</a></li>
+                        <li><a href="complaint_closed.html" class="load-content">Closed</a></li>
+                    </ul>
+                </li>
+                <li><a href="feedback.html" class="load-content">Feedback</a></li>
+                <li><a href="user_access.html" class="load-content">User Access</a></li>
+                <li><a href="logout.html" class="load-content">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content" id="right-panel">
+          
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const expandToggles = document.querySelectorAll('.expand-toggle'); // Dropdown toggles
+    const links = document.querySelectorAll('.sidebar a.load-content, .box a'); // All links (sidebar + box links)
+    const boxContainer = document.querySelector('.box-container'); // Box container
+    const rightPanel = document.getElementById('right-panel'); // Right content panel
+
+    // Handle dropdown toggling
+    expandToggles.forEach(toggle => {
+        toggle.addEventListener('click', event => {
+            event.preventDefault();
+            const parentLi = toggle.parentElement;
+            parentLi.classList.toggle('expanded'); // Toggle the 'expanded' class to show/hide submenu
+        });
+    });
+
+    // Handle dynamic content loading
+    links.forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault(); // Prevent default link behavior
+
+            const url = link.getAttribute('href'); // Get the href attribute
+
+            // Fetch and display the content in the right panel
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Unable to load content from ${url}`);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    rightPanel.innerHTML = html; // Update the right panel content
+
+                    // Hide the box container only
+                    boxContainer.style.display = 'none';
+
+                    // Update the URL in the browser's address bar
+                    history.pushState({ path: url }, '', url);
+
+                    // Update the page title dynamically
+                    const routeName = link.textContent || 'Dashboard';
+                    document.title = `${routeName} - Admin Dashboard`;
+                })
+                .catch(error => {
+                    console.error('Error fetching content:', error);
+                    rightPanel.innerHTML = `<p style="color: red;">Error: Unable to load content. Please try again.</p>`;
+                });
+        });
+    });
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', event => {
+        if (event.state && event.state.path) {
+            const url = event.state.path;
+
+            // Fetch and display the content for the current URL
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    rightPanel.innerHTML = html;
+
+                    // Show the box container again if navigating back to the main dashboard
+                    if (url === 'dashboard.html' || !url) {
+                        boxContainer.style.display = 'grid';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching content:', error);
+                    rightPanel.innerHTML = `<p style="color: red;">Error: Unable to load content. Please try again.</p>`;
+                });
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* White text for visibility */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure full height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: flex-start; /* Align content at the top */
+        }
+        
+        /* Fixed Text for Hostel Management System */
+        .header-text {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+           background-color:  #3e454d;
+            color: white;
+            padding: 15px;
+            z-index: 1000;
+        }
+        
+
+    /* Sidebar styling */
+    .sidebar {
+        width: 15%;
+        height: 100vh;
+        background: #2c3135;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 1px;
+    }
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar ul li {
+        margin-bottom: 10px;
+    }
+
+    .sidebar ul li a {
+        text-decoration: none;
+        color: white;
+        margin-top:22%;
+        display: block;
+        align-items: center;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+    .sidebar ul li a i {
+        margin-right: 10px;
+    }
+    .sidebar ul li a.active {
+        background-color: green; /* Active link background color */
+        color: white; /* Text color for active link */
+    }
+    /* Sub-menu styling */
+    .sub-menu {
+        display: none;
+        margin-left: 15px;
+    }
+
+    .expandable.expanded > .sub-menu {
+        display: block;
+    }
+
+    /* Content Section */
+    .content {
+        margin-left: 270px;
+        padding: 30px;
+        transition: margin-left 0.3s ease;
+    }
+
+    .content h2 {
+        font-weight: 500;
+        font-size: 28px;
+        color: #333;
+    }
+
+    .content p {
+        color: #555;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+  
+    .box {
+        background-color: darkblue; /* باکس کا رنگ */
+        color: white; /* متن کا رنگ */
+        padding: 20px; /* اندرونی جگہ */
+        border-radius: 10px; /* کناروں کو گول کرنے کے لیے */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* سایہ */
+        text-align: center; /* متن کو درمیان میں لانے کے لیے */
+        font-size: 24px; /* متن کا سائز */
+        margin: 10px; /* باکسز کے درمیان جگہ */
+        width: 400px; /* باکس کی چوڑائی */
+        margin-top: 5%;
+        height: 100px; /* باکس کی اونچائی */
+        display:flex;
+        align-items: center; /* عمودی مرکز */
+        justify-content: center; /* افقی مرکز */
+    }
+    
+    a {
+        color: white; /* لنک کا رنگ */
+        text-decoration: none; /* لنک کے نیچے لکیر */
+    }
+    .container{
+        display:flex;
+    }
+    .box1 {
+        background-color: darkgreen; 
+        color: white; 
+        padding: 20px;
+        border-radius: 10px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center; 
+        font-size: 24px; 
+        margin: 10px; 
+        margin-top: 5%;
+        width: 400px; 
+        height: 100px; 
+        display:flex;
+        align-items: center; 
+        justify-content: center; 
+    }
+
+   
+</style>
+<script defer src="static/app.js"></script> <!-- JavaScript file -->
+</head>
+<body>
+    <div class="header-text">
+        Hostel Management System
+    </div>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="book_hostel.html" data-content="right-panel">Book Hostel</a></li>
+                <li><a href="room_detail.html" data-content="right-panel">Room Details</a></li>
+                <li><a href="complaint.html" data-content="right-panel">Complaint Registration</a></li>
+                <li><a href="registered_complaint.html" data-content="right-panel">Registered Complaint</a></li>
+                <li><a href="feedback.html" data-content="right-panel">FeedBack</a></li>
+                <li><a href="my_profile.html" data-content="right-panel">My Profile</a></li>
+                <li><a href="change_password.html" data-content="right-panel">Change Password</a></li>
+                <li><a href="access_log.html" data-content="right-panel">Access Log</a></li>
+                <li><a href="logout.html" data-content="right-panel">Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content" id="right-panel">
+            <div class="container"> 
+            <div class="box">
+                <a href="my_profile.html" data-content="right-panel">My Profile</a>
+            </div>
+            <div class="box1">
+                <a href="room_detail.html" data-content="right-panel">Room Details</a>
+            </div>
+        </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const links = document.querySelectorAll(".sidebar a");
+            const rightPanel = document.getElementById("right-panel");
+        
+            const loadContent = (url) => {
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        // Update the right panel with the fetched content
+                        rightPanel.innerHTML = data;
+        
+                        // Update the active link
+                        links.forEach(link => {
+                            if (link.getAttribute("href") === url) {
+                                link.classList.add("active-link");
+                            } else {
+                                link.classList.remove("active-link");
+                            }
+                        });
+        
+                        // Update the document title
+                        const routeName = links.find(link => link.getAttribute("href") === url)?.textContent || "Dashboard";
+                        document.title = `${routeName} - User Dashboard`;
+        
+                        // Update the browser's address bar
+                        history.pushState({ path: url }, "", url);
+                    })
+                    .catch(error => {
+                        rightPanel.innerHTML = `<p>Failed to load content. Please try again later.</p>`;
+                        console.error("Error fetching content:", error);
+                    });
+            };
+        
+            links.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault(); // Prevent default link behavior
+
+                    const url = link.getAttribute('href'); // Get the href attribute
+
+                    // Fetch and display the content in the right panel
+                    fetch(url)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`Unable to load content from ${url}`);
+                            }
+                            return response.text();
+                        })
+                        .then(html => {
+                            rightPanel.innerHTML = html; // Update the right panel content
+
+                            // Update the URL in the browser's address bar
+                            history.pushState({ path: url }, '', url);
+
+                            // Update the page title dynamically
+                            const routeName = link.textContent || 'Dashboard';
+                            document.title = `${routeName} - User Dashboard`;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching content:', error);
+                            rightPanel.innerHTML = `<p style="color: red;">Error: Unable to load content. Please try again.</p>`;
+                        });
+                });
+            });
+
+            // Handle back/forward navigation
+            window.addEventListener('popstate', event => {
+                if (event.state && event.state.path) {
+                    const url = event.state.path;
+
+                    // Fetch and display the content for the current URL
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(html => {
+                            rightPanel.innerHTML = html;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching content:', error);
+                            rightPanel.innerHTML = `<p style="color: red;">Error: Unable to load content. Please try again.</p>`;
+                        });
+                }
+            });
+        });     const rightPanel = document.getElementById('right-panel'); // Right content panel
+    </script>
+    </body>
+</html>

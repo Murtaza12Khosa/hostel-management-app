@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin-left:-30%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: left;
+            margin-top: -5%;
+            margin-left:-170%;
+            margin-bottom: 20px;
+            color:#333
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            margin-left:-120%;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            margin-left:-120%;
+            width: 250%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        .btn {
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form action="/register-student" method="POST">
+            <h3> Room Related: </h3>
+               <!-- Room Information -->
+               <div class="form-group">
+                <label for="room-number">Room Number</label>
+                <select id="room-number" name="room_number" required>
+                    <option value="" disabled selected>Select a room</option>
+                    <option value="101">101</option>
+                    <option value="102">102</option>
+                    <option value="103">103</option>
+                    <option value="104">104</option>
+                    <option value="105">105</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="seater">Seater</label>
+                <input type="text" id="seater" name="seater" required>
+            </div>
+            <div class="form-group">
+                <label for="first-name">Fees (Per Month)</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+                <label for="room-type">Food Status</label>
+                <select id="food_status" name="food_status" required>
+                    <option value="" disabled selected>Select Food Status</option>
+                    <option value="single">Without Food</option>
+                    <option value="single">With Food(Per Month Extra 2000)</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="stay_from">Stay From</label>
+                <input type="Date" id="stay_from" name="stay_from"  required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (In Month)</label>
+                <input type="text" id="duration" name="duration"  required>
+            </div>
+            <div class="form-group">
+                <label for="room-type">Room Type</label>
+                <select id="room-type" name="room_type" required>
+                    <option value="" disabled selected>Select room type</option>
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="suite">Suite</option>
+                </select>
+            </div>
+                <h3>Personal Info: </h3>
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="first-name">Course</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+                <label for="first-name">Middel Name</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Enter first name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Enter last name" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contact_no">Contact No</label>
+                <input type="contact_no" id="contact_no" name="contact_no" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="guardin_name">Guardin Name</label>
+                <input type="text" id="guardin_name" name="guardin_name" required>
+            </div>
+            <div class="form-group">
+                <label for="guardin_relation">Guardin Relation</label>
+                <input type="text" id="guardin_name" name="guardin_relation" required>
+            </div><div class="form-group">
+                <label for="guardin_contact_no">Guardian Contact No</label>
+                <input type="text" id="guardin_contact_no" name="guardin_contact_no" required>
+            </div>
+            <h3>Address Info: </h3>
+            <!-- Address Information -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" placeholder="Enter your address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter city" required>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="Enter state" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">ZIP Code</label>
+                <input type="text" id="zip" name="zip" placeholder="Enter ZIP code" required>
+            </div>
+          
+
+         
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Register</button>
+        </form>
+    </div>
+</body>
+</html>

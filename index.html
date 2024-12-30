@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+    }
+    
+    .container {
+        display: flex;
+        width: 100%;
+    }
+    
+    .sidebar {
+        width: 20%;
+        background-color: #f8f9fa;
+        color: white;
+        padding: 20px;
+    }
+    
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .sidebar ul li {
+        margin: 10px 0;
+    }
+    
+    .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        background-color: #444;
+        border-radius: 5px;
+    }
+    
+    .sidebar ul li a:hover {
+        background-color: #555;
+    }
+    
+    .content {
+        flex-grow: 1;
+        padding: 20px;
+        overflow-y: auto;
+    }
+    
+    .content h2 {
+        margin-top: 0;
+        height: 70px;
+    }
+    
+    .sub-menu {
+        display: none; /* Hidden by default */
+        margin-left: 15px;
+    }
+    
+    .expandable.expanded .sub-menu {
+        display: block; /* Show when parent has class 'expanded' */
+    }
+    
+    /* Content Section */
+    .content {
+         /* Ensure content doesn't overlap the sidebar */
+        padding: 20px;
+    }   
+</style>
+ <script defer src="static/app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <ul>
+                <li><a href="registration.html" data-content="right-panel">Registration</a></li>
+                <li><a href="user_login.html" data-content="right-panel">User Login</a></li>
+                <li><a href="admin_login.html" data-content="right-panel">Admin Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content" id="right-panel">
+            <h2>Welcome to the Hostel Management System</h2>
+            <p>Select an option from the left to proceed.</p>
+        </div>
+    </div>
+</body>
+</html>
